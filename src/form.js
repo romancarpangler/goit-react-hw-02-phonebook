@@ -6,11 +6,11 @@ export class FormAddcontacts extends Component {
     number: '',
   };
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state);
     this.setState({ name: '', number: '' });
-  }
+  };
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -26,7 +26,7 @@ export class FormAddcontacts extends Component {
             onChange={this.handleChange}
             type="text"
             name="name"
-            placeholder="ivan-vasulovuch"
+            placeholder="ivan vasulovuch"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
