@@ -22,7 +22,7 @@ export class App extends Component {
     };
 
     this.setState(prevState => {
-      const { contacts } = this.state;
+      // const { contacts } = this.state;
 
       return {
         contacts: [...prevState.contacts, contact],
