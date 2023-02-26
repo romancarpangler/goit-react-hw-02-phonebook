@@ -32,6 +32,7 @@ export class FormAddcontacts extends Component {
             required
           />
         </label>
+
         <label>
           Number
           <input
@@ -44,6 +45,7 @@ export class FormAddcontacts extends Component {
             required
           />
         </label>
+
         <button>submit</button>
       </form>
     );

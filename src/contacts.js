@@ -1,12 +1,20 @@
-export const Contacts = ({ contacts }) => {
+export const Contacts = ({ contacts, onDeleteContact }) => {
   return (
     <ul>
-      {contacts.map(({ name, number, id }) => {
+      {contacts.map(({ id, name, number }) => {
         return (
           <li key={id}>
-            <p>
+            <span>
               {name}: {number}
-            </p>
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                onDeleteContact(id);
+              }}
+            >
+              Delete
+            </button>
           </li>
         );
       })}
