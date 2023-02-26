@@ -21,6 +21,7 @@ export class App extends Component {
       name,
       number,
     };
+    console.log(contact);
 
     // this.setState({
     //   contacts: [...this.state.contacts, contact],
