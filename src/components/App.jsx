@@ -20,13 +20,10 @@ export class App extends Component {
       name,
       number,
     };
+    console.log(contact);
 
-    this.setState(prevState => {
-      // const { contacts } = this.state;
-
-      return {
-        contacts: [...prevState.contacts, contact],
-      };
+    this.setState(() => {
+      this.state.contacts = [contact, ...this.state.contacts];
     });
   }
 
