@@ -15,18 +15,17 @@ export class App extends Component {
     filter: '',
   };
 
-  onSubmit({ name, number }) {
+  onSubmit = ({ name, number }) => {
     const contact = {
       id: nanoid().toString(),
       name,
       number,
     };
-    console.log(this.state);
-    console.log(contact);
-    // this.setState({
-    //   contacts: [...this.state.contacts, contact],
-    // });
-  }
+
+    this.setState({
+      contacts: [...this.state.contacts, contact],
+    });
+  };
 
   onChenge = e => {
     this.setState({ filter: e.target.value }, this.filterName);
