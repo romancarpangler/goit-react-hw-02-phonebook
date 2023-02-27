@@ -22,7 +22,7 @@ export class App extends Component {
       number,
     };
     console.log(this.state);
-
+    console.log(contact);
     // this.setState({
     //   contacts: [...this.state.contacts, contact],
     // });
