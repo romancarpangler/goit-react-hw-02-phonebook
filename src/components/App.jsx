@@ -3,17 +3,29 @@ import { nanoid } from 'nanoid';
 import { FormAddcontacts } from 'form';
 import { Contacts } from 'contacts';
 import { Filter } from 'filter';
+import { server } from 'server';
 
 export class App extends Component {
   state = {
-    contacts: [
-      { id: nanoid().toString(), name: 'Rosie Simpson', number: '459-12-56' },
-      { id: nanoid().toString(), name: 'Hermione Kline', number: '443-89-12' },
-      { id: nanoid().toString(), name: 'Eden Clements', number: '645-17-79' },
-      { id: nanoid().toString(), name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const saveContact = localStorage.getItem('contacts');
+    if (saveContact) {
+      const contactsParse = JSON.parse(saveContact);
+      this.setState({ contacts: contactsParse });
+      return;
+    }
+    this.setState({ contacts: server });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
 
   onSubmit = ({ name, number }) => {
     const contact = {
