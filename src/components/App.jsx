@@ -34,11 +34,7 @@ export class App extends Component {
       number,
     };
 
-    if (
-      this.state.contacts.find(
-        contact => contact.name.toLowerCase() === name.toLowerCase()
-      )
-    ) {
+    if (this.state.contacts.find(contact => contact.name === name)) {
       return alert(`${name} is already in contacts.`);
     }
 
@@ -54,9 +50,7 @@ export class App extends Component {
   filterName() {
     const valueFilter = this.state.filter.toLowerCase();
     const contacts = this.state.contacts;
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(valueFilter)
-    );
+    return contacts.filter(contact => contact.name.includes(valueFilter));
   }
 
   deleteContact = id => {
