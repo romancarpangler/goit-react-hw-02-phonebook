@@ -1,13 +1,19 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addContact } from './redux/slice';
 
 export const FormAddcontacts = ({ onSubmit }) => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState(0);
 
+  const data = {
+    name: name,
+    number: number,
+  };
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit(name, number);
+    dispatch(addContact(data));
     event.currentTarget.reset();
   };
 
@@ -56,8 +62,4 @@ export const FormAddcontacts = ({ onSubmit }) => {
       <button>submit</button>
     </form>
   );
-};
-
-FormAddcontacts.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
