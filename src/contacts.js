@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(state => state.contacts.a);
   const filter = useSelector(state => state.filter);
 
   function contactsFillet() {

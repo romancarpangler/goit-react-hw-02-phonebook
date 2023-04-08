@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from './redux/slice';
 
-export const FormAddcontacts = ({ onSubmit }) => {
+export const FormAddcontacts = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState(0);
