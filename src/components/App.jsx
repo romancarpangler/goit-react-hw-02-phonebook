@@ -1,8 +1,17 @@
-import { FormAddcontacts } from 'form';
-import { Contacts } from 'contacts';
-import { Filter } from 'filter';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { FormAddcontacts } from 'components/form';
+import { Contacts } from 'components/contacts';
+import { Filter } from 'components/filter';
+import { fetchContact } from 'operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContact());
+  }, [dispatch]);
+
   return (
     <div>
       <h1>Phonebook</h1>

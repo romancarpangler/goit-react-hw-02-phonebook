@@ -1,21 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from './redux/slice';
+import { addContact } from '../operations';
 
 export const FormAddcontacts = () => {
   const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState(0);
-
-  const data = {
-    name: name,
-    number: number,
-  };
-  const handleSubmit = event => {
-    event.preventDefault();
-    dispatch(addContact(data));
-    event.currentTarget.reset();
-  };
 
   const handleChange = event => {
     const { name, value } = event.currentTarget;
@@ -31,8 +22,19 @@ export const FormAddcontacts = () => {
     }
   };
 
+  const data = {
+    name: name,
+    number: number,
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={event => {
+        event.preventDefault();
+        dispatch(addContact(data));
+        event.currentTarget.reset();
+      }}
+    >
       <label>
         Name
         <input
